@@ -1,9 +1,10 @@
-package br.com.desafiocielo.domain.models.dto;
+package br.com.desafiocielo.desafio1.domain.models.dtos;
 
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
 
 @Data
 @AllArgsConstructor
@@ -11,26 +12,26 @@ import lombok.NoArgsConstructor;
 public final class JuridicalPersonDto {
 
     @NotBlank
-    @Size(min = 9, max = 9)
+    @Size(min = 11, max = 11)
     private String cpf;
 
     @NotNull
-    @Max(4)
+    @Max(value = 9999)
     private Long merchantCategoryCode;
 
     @NotBlank
-    @Max(50)
+    @Length(max = 50)
     private String name;
 
     @NotBlank
-    @Email
+    @Email(regexp = "^[a-zA-Z0-9_\\-\\.]+@[a-zA-Z0-9_\\-\\.]+\\.[a-zA-Z]{2,5}$", message = "Formato de email inválido")
     private String email;
 
     @NotBlank
-    @Size(min = 14, max = 14)
+    @Length(min = 14, max = 14)
     private String cnpj;
 
     @NotBlank
-    @Max(50)
+    @Length(max = 50)
     private String companyName;
 }

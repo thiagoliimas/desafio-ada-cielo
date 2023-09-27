@@ -1,4 +1,4 @@
-package br.com.desafiocielo.domain.models.dto;
+package br.com.desafiocielo.desafio1.domain.models.dtos;
 
 import jakarta.validation.constraints.*;
 import lombok.Data;
@@ -16,15 +16,14 @@ public final class NaturalPersonDto {
     }
 
     @NotBlank
-    @Size(min = 9, max = 9)
+    @Size(min = 11, max = 11)
     private String cpf;
 
     @NotNull
-    @Max(4)
+    @Max(value = 9999)
     private Long merchantCategoryCode;
 
     @NotBlank
-    @Max(50)
     private String name;
 
     @NotBlank
