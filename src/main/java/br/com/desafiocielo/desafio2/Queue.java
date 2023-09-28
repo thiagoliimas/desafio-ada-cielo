@@ -14,5 +14,7 @@ public interface Queue<T> {
 
     boolean isEmpty();
 
-    public T get(int i);
+    T get(int i);
+
+    boolean exist(T f);
 }

@@ -30,6 +30,11 @@ public class ControllerExceptionalHandler extends ResponseEntityExceptionHandler
         return ResponseEntity.badRequest().body(new ExceptionDTO("Cliente já cadastrado", "400"));
     }
 
+    @ExceptionHandler(NoSuchFieldException.class)
+    public ResponseEntity<Object> entityNotFound(NoSuchFieldException exception){
+        return ResponseEntity.badRequest().body(new ExceptionDTO("Fila vazia", "404"));
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> GeneralException(Exception exception){
         return ResponseEntity.internalServerError().body(new ExceptionDTO(exception.getMessage(), "500"));

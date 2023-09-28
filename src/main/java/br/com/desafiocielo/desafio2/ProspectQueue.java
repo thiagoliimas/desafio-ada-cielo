@@ -61,7 +61,20 @@ public class ProspectQueue<T> implements Queue<T>{
         this.e = array;
     }
 
+    @Override
     public T get(int i){
         return (T) this.e[i];
+    }
+
+    @Override
+    public boolean exist(T f){
+        boolean exist = false;
+        for (int i = 0; i < count ; i++) {
+            if (f.equals(e[i])) {
+                exist = true;
+                break;
+            }
+        }
+        return exist;
     }
 }

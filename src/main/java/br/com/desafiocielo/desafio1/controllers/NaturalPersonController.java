@@ -14,7 +14,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/cliente")
-@Tag(name = "Users")
+@Tag(name = "Pessoa Física")
 public class NaturalPersonController {
 
     private final NaturalPersonService service;
@@ -31,7 +31,12 @@ public class NaturalPersonController {
 
     @GetMapping("/pessoa-fisica/{id}")
     public ResponseEntity<User> getNaturalPersonById(@PathVariable("id") UUID id) {
-        return new ResponseEntity<>(service.getNaturalPersonById(id), HttpStatus.CREATED);
+        return new ResponseEntity<>(service.getNaturalPersonById(id), HttpStatus.OK);
+    }
+
+    @GetMapping("/pessoa-fisica/prospect")
+    public ResponseEntity<User> prospect() throws NoSuchFieldException {
+        return new ResponseEntity<>(service.prospect(), HttpStatus.OK);
     }
 
 

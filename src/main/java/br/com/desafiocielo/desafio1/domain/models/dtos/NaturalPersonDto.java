@@ -17,6 +17,7 @@ public final class NaturalPersonDto {
 
     @NotBlank
     @Size(min = 11, max = 11)
+    @Pattern(regexp = "\\d+", message = "O campo deve conter apenas números.")
     private String cpf;
 
     @NotNull
