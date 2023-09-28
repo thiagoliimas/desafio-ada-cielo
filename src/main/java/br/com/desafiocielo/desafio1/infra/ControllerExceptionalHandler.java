@@ -21,17 +21,17 @@ import java.util.Map;
 public class ControllerExceptionalHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(EntityNotFoundException.class)
-    public ResponseEntity entityNotFound(EntityNotFoundException exception){
+    public ResponseEntity<Object> entityNotFound(EntityNotFoundException exception){
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ExceptionDTO("Cliente ainda não está cadastrado", "404"));
     }
 
     @ExceptionHandler(DataIntegrityViolationException.class)
-    public ResponseEntity entityNotFound(DataIntegrityViolationException exception){
+    public ResponseEntity<Object> entityNotFound(DataIntegrityViolationException exception){
         return ResponseEntity.badRequest().body(new ExceptionDTO("Cliente já cadastrado", "400"));
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity GeneralException(Exception exception){
+    public ResponseEntity<Object> GeneralException(Exception exception){
         return ResponseEntity.internalServerError().body(new ExceptionDTO(exception.getMessage(), "500"));
     }
 

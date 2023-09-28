@@ -31,7 +31,7 @@ public class JuridicalPersonController {
 
     @GetMapping("/pessoa-juridica/{id}")
     public ResponseEntity<User> getJuridicalPersonById(@PathVariable("id") UUID id) {
-        return new ResponseEntity<>(service.getJuridicalPersonById(id), HttpStatus.CREATED);
+        return ResponseEntity.status(HttpStatus.OK).body(service.getJuridicalPersonById(id));
     }
 
 
