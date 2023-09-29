@@ -34,3 +34,5 @@ A parte de implementação do desafio 2 (criação de filas em mémoria) no desa
 em fila.
 
 Por útimo temos a implementação do desafio 4 refente sobre segurança, autenticação e autorização.
+
+As Exceptions estão sendo tratadas na pasta: src/main/java/br/com/desafiocielo/desafio1/infra/ExceptionalHandler.java
