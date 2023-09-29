@@ -22,4 +22,9 @@ public final class NaturalPerson extends User {
     public NaturalPerson(UUID id, Long merchantCategoryCode, String name, String cpf, String email) {
         super(id, merchantCategoryCode, name, cpf, email);
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

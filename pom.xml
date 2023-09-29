@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.desafio-cielo</groupId>
-	<artifactId>Desafio-Bootcamp-Cielo</artifactId>
+	<artifactId>Desafio-Bootcamp-Cielo - Copia</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Desafio-Bootcamp-Cielo</name>
 	<description>Demo project for Spring Boot</description>
@@ -48,20 +48,24 @@
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
 			<version>2.2.0</version>
 		</dependency>
-<!--		<dependency>-->
-<!--			<groupId>io.awspring.cloud</groupId>-->
-<!--			<artifactId>spring-cloud-aws-dependencies</artifactId>-->
-<!--			<version>3.0.2</version>-->
-<!--			<type>pom</type>-->
-<!--			<scope>import</scope>-->
-<!--		</dependency>-->
+		<dependency>
+			<groupId>io.awspring.cloud</groupId>
+			<artifactId>spring-cloud-aws-dependencies</artifactId>
+			<version>3.0.2</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
 
-<!--		<dependency>-->
-<!--			<groupId>io.awspring.cloud</groupId>-->
-<!--			<artifactId>spring-cloud-aws-starter-sqs</artifactId>-->
-<!--			<version>3.0.2</version>-->
-<!--		</dependency>-->
-
+		<dependency>
+			<groupId>io.awspring.cloud</groupId>
+			<artifactId>spring-cloud-aws-starter-sqs</artifactId>
+			<version>3.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk-sqs</artifactId>
+			<version>1.12.220</version> <!-- Verifique a versão mais recente no repositório Maven -->
+		</dependency>
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-ui</artifactId>

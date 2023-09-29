@@ -32,4 +32,15 @@ public sealed abstract class User permits NaturalPerson, JuridicalPerson{
 
     @Column(nullable = false, unique = true, length = 50)
     private String email;
+
+    @Override
+    public String toString() {
+        return "{" +
+                "id=" + id +
+                ", merchantCategoryCode=" + merchantCategoryCode +
+                ", name='" + name + '\'' +
+                ", cpf='" + cpf + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }

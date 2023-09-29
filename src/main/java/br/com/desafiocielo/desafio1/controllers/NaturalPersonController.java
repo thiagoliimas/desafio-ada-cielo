@@ -3,6 +3,7 @@ package br.com.desafiocielo.desafio1.controllers;
 import br.com.desafiocielo.desafio1.domain.models.User;
 import br.com.desafiocielo.desafio1.domain.models.dtos.NaturalPersonDto;
 import br.com.desafiocielo.desafio1.services.NaturalPersonService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +36,7 @@ public class NaturalPersonController {
     }
 
     @GetMapping("/pessoa-fisica/prospect")
-    public ResponseEntity<User> prospect() throws NoSuchFieldException {
+    public ResponseEntity prospect() throws JsonProcessingException {
         return new ResponseEntity<>(service.prospect(), HttpStatus.OK);
     }
 

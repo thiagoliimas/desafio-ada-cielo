@@ -1,6 +1,7 @@
 package br.com.desafiocielo.desafio1.infra;
 
 import br.com.desafiocielo.desafio1.domain.models.dtos.ExceptionDTO;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpHeaders;
@@ -18,11 +19,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestControllerAdvice
-public class ControllerExceptionalHandler extends ResponseEntityExceptionHandler {
+public class ExceptionalHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity<Object> entityNotFound(EntityNotFoundException exception){
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ExceptionDTO("Cliente ainda não está cadastrado", "404"));
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ExceptionDTO(
+                "Cliente ainda não está cadastrado", "404"));
     }
 
     @ExceptionHandler(DataIntegrityViolationException.class)
@@ -39,9 +41,20 @@ public class ControllerExceptionalHandler extends ResponseEntityExceptionHandler
     public ResponseEntity<Object> GeneralException(Exception exception){
         return ResponseEntity.internalServerError().body(new ExceptionDTO(exception.getMessage(), "500"));
     }
+    @ExceptionHandler(JsonProcessingException.class)
+    public ResponseEntity<Object> convertBodyMessageFailure(JsonProcessingException e){
+        return ResponseEntity.internalServerError().body(new ExceptionDTO(
+                "Falha ao extrair corpo da mensagem", "400"));
+    }
 
-    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
-                                                                  HttpHeaders headers, HttpStatusCode status, WebRequest request) {
+    @ExceptionHandler(IndexOutOfBoundsException.class)
+    public ResponseEntity<Object> convertBodyMessageFailure(IndexOutOfBoundsException e){
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ExceptionDTO("Fila vazia.", "404"));
+    }
+
+    protected ResponseEntity<Object> handleMethodArgumentNotValid(
+            MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
+
         Map<String, String> errors = new HashMap<>();
         ex.getBindingResult().getAllErrors().forEach((error) -> {
 
