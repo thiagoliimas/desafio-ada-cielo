@@ -1,4 +1,4 @@
-package br.com.desafiocielo.desafio1.infra;
+package br.com.desafiocielo.desafio1.infra.exception;
 
 import br.com.desafiocielo.desafio1.domain.models.dtos.ExceptionDTO;
 import com.fasterxml.jackson.core.JsonProcessingException;
