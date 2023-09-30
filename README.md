@@ -19,6 +19,8 @@ pelo time de vendas. As tecnologias usadas incluem Java 17, SpringBoot 3.0, Banc
 - [x] Edição de pessoa jurídica
 - [x] Exclusão de pessoa jurídica
 - [x] Prospect de pessoa jurídica
+###
+- [x] Endpoints para geração de token de acesso
 
 ### Mais sobre o projeto
 
