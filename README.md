@@ -36,3 +36,5 @@ em fila.
 Por útimo temos a implementação do desafio 4 refente sobre segurança, autenticação e autorização.
 
 As Exceptions estão sendo tratadas na pasta: src/main/java/br/com/desafiocielo/desafio1/infra/ExceptionalHandler.java
+
+O desafio 4 (parte de segurança) está implemntado no desafio 1, suas classe serão encontradas nas pastas do desafio1
